@@ -6,27 +6,35 @@
 		<span class="induct">关于我</span>
 		<ul class="icon-item">
 			<div class="age">
-				<li class="iconfont icon-nianling"></li>
-				<span class="text">年龄</span>
+				<router-link class="lkv" to="/age">
+					<li class="iconfont icon-nianling"></li>
+					<span class="text">年龄:00后</span>
+				</router-link>
 			</div>
 			<div class="age">
-				<li class="iconfont icon-w_xuewei-"></li>
-				<span class="text">学历</span>
+				<router-link class="lkv" to="/education">
+					<li class="iconfont icon-w_xuewei-"></li>
+					<span class="text">学历:本科</span>
+				</router-link>
 			</div>
 			<div class="age">
-				<li class="iconfont icon-zuobiao"></li>
-				<span class="text">坐标</span>
+				<router-link class="lkv" to="/location">
+					<li class="iconfont icon-zuobiao"></li>
+					<span class="text">坐标:温州</span>
+				</router-link>
 			</div>
 			<div class="age">
-				<li class="iconfont icon-gongzuojingli"></li>
-				<span class="text">工作经历</span>
+				<router-link class="lkv" to="/work">
+					<li class="iconfont icon-gongzuojingli"></li>
+					<span class="text">工作经历</span>
+				</router-link>
 			</div>
 		</ul>
 		<div class="content">
-			撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大
-			撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大
-			撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大
-			撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大撒澳城大
+			<router-view class="" name="a"></router-view>
+			<router-view class="" name="b"></router-view>
+			<router-view class="" name="c"></router-view>
+			<router-view class="" name="d"></router-view>
 		</div>
 	</div>
 </template>
@@ -44,16 +52,19 @@
 		display: flex;
 		position: relative;
 		width: 100%;
-		height: 94vh;
+		height: 93vh;
 		position: absolute;
 		flex-direction: column;
 		align-items: center;
+		background-color: #F5F2F0;
 
 		.Bout-me {
-			margin-top: 120px;
+			margin-top: 30px;
 
 			img {
 				border-radius: 50%;
+				border: 5px solid #F4F5F7;
+				padding: 10px;
 			}
 		}
 
@@ -67,7 +78,7 @@
 
 			.iconfont {
 				font-size: 55px;
-				border: 1px solid rgba(0, 0, 0, 1);
+				border: 5px solid $content-black;
 				padding: 20px;
 				border-radius: 50%;
 				margin-bottom: 15px;
@@ -76,15 +87,25 @@
 			.age {
 				text-align: center;
 				margin: 40px 60px;
+
+				.lkv {
+					text-decoration: none;
+					color: black;
+				}
 			}
-			.text{
+
+			.text {
 				font-size: 20px;
 			}
+
 		}
-		.content{
-			width: 900px;
-			font-size: 18px;
-			letter-spacing: 3px;
+
+		.icon-item:hover {
+			color: green;
+		}
+
+		.content {
+	
 		}
 
 

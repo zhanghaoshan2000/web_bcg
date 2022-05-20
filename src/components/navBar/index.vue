@@ -10,7 +10,9 @@
 			<router-link class="meun-item" to="/">Pricing</router-link>
 			<router-link class="meun-item" to="/">博客</router-link>
 			<router-link class="meun-item" to="/about">关于我</router-link>
-			<button type="button" class="btn">Button</button>
+			<button type="button" class="btn">GitHub
+			<i class="iconfont icon-github"></i>
+			</button>
 		</ul>
 	</div>
 	<div class="header"></div>
@@ -31,7 +33,7 @@
 	.navBar {
 		display: flex;
 		width: 100%;
-		background-color: #fff;
+		background-color: #0D0D0D;
 		box-sizing: border-box;
 		height: 64px;
 		align-items: center;
@@ -66,7 +68,7 @@
 				padding: 20px;
 				font-size: 14px;
 				text-decoration: none;
-				color:$content-fontcolor;
+				color:$content-text;
 			}
 	
 		}
@@ -77,7 +79,8 @@
 			margin-left: 36px;
 			width: 96px;
 			height: 32px;
-			background: rgba(235, 236, 240, 1);
+			background: $content-gard;
+			color: $content-black;
 			border: none;
 			font-size: 14px;
 			border-radius: 5px;
