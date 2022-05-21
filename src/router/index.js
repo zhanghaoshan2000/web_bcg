@@ -8,6 +8,11 @@ import location from '../views/About/induction/location.vue'
 import work from '../views/About/induction/work.vue'
 const routes = [{
 		path: '/',
+		name: 'Home',
+		component: () => import( /* webpackChunkName: "about" */ '../views/Home/index.vue')
+	},
+	{
+		path: '/blog',
 		name: 'Blog',
 		component: () => import( /* webpackChunkName: "about" */ '../views/Blog/blog.vue')
 	},
@@ -64,6 +69,21 @@ const routes = [{
 				},
 			}
 		]
+	},
+	{
+		path:'/future',
+		name:'Future',
+		component: () => import( /* webpackChunkName: "about" */ '../views/Future/index.vue')
+	},
+	{
+		path:'/live',
+		name:'Live',
+		component: () => import( /* webpackChunkName: "about" */ '../views/Live/index.vue')
+	},
+	{
+		path:'/project',
+		name:'Project',
+		component: () => import( /* webpackChunkName: "about" */ '../views/Project/index.vue')
 	}
 ]
 

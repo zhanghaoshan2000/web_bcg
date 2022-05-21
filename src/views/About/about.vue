@@ -56,7 +56,7 @@
 		position: absolute;
 		flex-direction: column;
 		align-items: center;
-		background-color: #F5F2F0;
+		background-color: #fff;
 
 		.Bout-me {
 			margin-top: 30px;

@@ -6,12 +6,13 @@
 		</ul>
 		<ul class="meun">
 			<router-link class="meun-item" to="/">首页</router-link>
-			<router-link class="meun-item" to="/">Services</router-link>
-			<router-link class="meun-item" to="/">Pricing</router-link>
-			<router-link class="meun-item" to="/">博客</router-link>
+			<router-link class="meun-item" to="/project">开源项目</router-link>
+			<router-link class="meun-item" to="/live">个人生活</router-link>
+			<router-link class="meun-item" to="/blog">博客</router-link>
 			<router-link class="meun-item" to="/about">关于我</router-link>
+			<router-link class="meun-item" to="/future">未来规划</router-link>
 			<button type="button" class="btn">GitHub
-			<i class="iconfont icon-github"></i>
+				<i class="iconfont icon-github"></i>
 			</button>
 		</ul>
 	</div>
@@ -20,16 +21,17 @@
 
 <script>
 	export default {
-		name:'NavBar',
-		
-		setup(){
-			
+		name: 'NavBar',
+
+		setup() {
+
 		}
 	}
 </script>
 
 <style lang="scss">
 	@import '../../style/index.scss';
+
 	.navBar {
 		display: flex;
 		width: 100%;
@@ -43,6 +45,7 @@
 		top: 0;
 		flex-shrink: 0;
 		z-index: 99;
+
 		.logo {
 			display: flex;
 			font-size: 16px;
@@ -50,7 +53,7 @@
 			margin-left: 160px;
 			height: 20px;
 			list-style-type: none;
-	
+
 			.logo-blog {
 				width: 60px;
 				height: 45px;
@@ -58,23 +61,30 @@
 				margin-right: 16px;
 			}
 		}
-	
+
 		.meun {
 			display: flex;
 			list-style-type: none;
 			align-items: center;
-	
+
 			.meun-item {
-				padding: 20px;
+				padding: 8px 20px;
+				border-radius: 5px;
 				font-size: 14px;
 				text-decoration: none;
-				color:$content-text;
+				color: $content-text;
 			}
-	
+
+			.router-link-active {
+				background-color: $content-gard;
+				color: #000;
+				transition: all .3s;
+			}
+
 		}
-	
+
 		.btn {
-	
+
 			margin-right: 160px;
 			margin-left: 36px;
 			width: 96px;
@@ -86,6 +96,7 @@
 			border-radius: 5px;
 		}
 	}
+
 	.header {
 		width: 1px;
 		height: 64px;

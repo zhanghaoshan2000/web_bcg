@@ -11,6 +11,8 @@
     "core-js": "^3.6.5",
     "lib-flexible": "^0.3.2",
     "postcss-pxtorem": "^5.1.1",
+    "three": "^0.140.2",
+    "vanta": "^0.5.22",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
