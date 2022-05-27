@@ -6,6 +6,9 @@ import age from '../views/About/induction/age.vue'
 import education from '../views/About/induction/education.vue'
 import location from '../views/About/induction/location.vue'
 import work from '../views/About/induction/work.vue'
+import future from '../views/Future/future/future.vue'
+import now from '../views/Future/future/now.vue'
+import road from '../views/Future/future/road.vue'
 const routes = [{
 		path: '/',
 		name: 'Home',
@@ -20,6 +23,7 @@ const routes = [{
 		path: '/about',
 		name: 'About',
 		component: () => import( /* */ '../views/About/about.vue'),
+		redirect: '/age',
 		children: [{
 				path: '/age',
 				name: 'Age',
@@ -71,19 +75,57 @@ const routes = [{
 		]
 	},
 	{
-		path:'/future',
-		name:'Future',
-		component: () => import( /* webpackChunkName: "about" */ '../views/Future/index.vue')
+		path: '/future',
+		name: 'Future',
+		component: () => import( /* webpackChunkName: "about" */ '../views/Future/index.vue'),
+		redirect: '/now',
+		children: [{
+				path: '/futures',
+				name: 'Futures',
+				components: {
+					default: {
+						road: road,
+						now: now
+					},
+					future: future,
+				},
+			}, {
+				path: '/now',
+				name: 'Now',
+				components: {
+					default: {
+						road: road,
+						future: future,
+					},
+					now: now
+				},
+			}, {
+				path: '/road',
+				name: 'Road',
+				components: {
+					default: {
+						now: now,
+						future: future,
+					},
+					road: road,
+				},
+			}
+
+		]
 	},
 	{
-		path:'/live',
-		name:'Live',
+		path: '/live',
+		name: 'Live',
 		component: () => import( /* webpackChunkName: "about" */ '../views/Live/index.vue')
+	}, {
+		path: '/project',
+		name: 'Project',
+		component: () => import( /* webpackChunkName: "about" */ '../views/Project/index.vue')
 	},
 	{
-		path:'/project',
-		name:'Project',
-		component: () => import( /* webpackChunkName: "about" */ '../views/Project/index.vue')
+		path:'/blogs',
+		name:'blogs',
+		components:()=> import('../views/Blog/blogs.vue')
 	}
 ]
 

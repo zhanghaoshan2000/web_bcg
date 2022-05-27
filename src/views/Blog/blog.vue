@@ -3,7 +3,7 @@
 		<!-- <NavBar /> -->
 		<div class="content">
 			<div class="blog-title">
-				Blog
+				问题总结
 			</div>
 			<bigCard />
 			<!-- 卡片 -->

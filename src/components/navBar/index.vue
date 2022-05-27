@@ -1,16 +1,17 @@
 <template>
 	<div class="navBar">
 		<ul class='logo'>
-			<li class="logo-blog"></li>
-			<li>Sketch UX Kit</li>
+			<li class="logo-blog"><i class="iconfont icon-xiangrikui"></i></li>
+			<li class="name-logo">向阳的Blog</li>
 		</ul>
 		<ul class="meun">
 			<router-link class="meun-item" to="/">首页</router-link>
 			<router-link class="meun-item" to="/project">开源项目</router-link>
-			<router-link class="meun-item" to="/live">个人生活</router-link>
+			<!-- <router-link class="meun-item" to="/live">个人生活</router-link> -->
 			<router-link class="meun-item" to="/blog">博客</router-link>
 			<router-link class="meun-item" to="/about">关于我</router-link>
 			<router-link class="meun-item" to="/future">未来规划</router-link>
+			<router-link class="meun-item" to="/live">登录</router-link>
 			<button type="button" class="btn">GitHub
 				<i class="iconfont icon-github"></i>
 			</button>
@@ -57,8 +58,17 @@
 			.logo-blog {
 				width: 60px;
 				height: 45px;
-				background-color: grey;
 				margin-right: 16px;
+				text-align: center;
+				.iconfont{
+					color: #fff;
+					font-size: 35px;
+					line-height: 45px;
+				}
+			}
+			.name-logo{
+				color: #fff;
+				letter-spacing: 3px;
 			}
 		}
 

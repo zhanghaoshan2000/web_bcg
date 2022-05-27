@@ -1,11 +1,11 @@
 <template>
 	<div class="blog-card-main">
 		<div class="blog-card-left">
-			<div class="blog-card-main-title">
-				Blog post title goes here ipsum dolor sit amet, consectetur
+			<div class="blog-card-main-title" @click="handleTopath">
+				{{data.title}}
 			</div>
 			<div class="blog-card-main-time">
-				20 December 2018 by Mikolaj Dobrucki
+				时间：{{data.time}}
 			</div>
 			<div class="blog-card-main-content">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
@@ -24,23 +24,48 @@
 		</div>
 		<div class="blog-card-right">
 			<div class="blog-card-img">
-	
+
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import {
+		useRouter
+	} from 'vue-router';
+	const userRouterEffert = () => {
+		const router = useRouter();
+		const handleTopath = () => {
+			router.push({
+				name: 'blogs'
+			})
+		}
+		return {
+			handleTopath
+		}
+	}
 	export default {
-		name:'bigCard',
-		setup(){
-			
+		name: 'bigCard',
+		setup() {
+			const data = {
+				title: 'uniapp适配微信小程序',
+				time: '2022-03-21'
+			}
+			const {
+				handleToLogin
+			} = userRouterEffert()
+			return {
+				data,
+				handleToLogin
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
 	@import '../../style/base.scss';
+
 	.blog-card-main {
 		display: flex;
 		align-items: center;
@@ -53,15 +78,20 @@
 		padding: 40px;
 		justify-content: space-between;
 		margin-bottom: 80px;
-	
+
 		.blog-card-left {
 			width: 495px;
 			height: 380px;
-	
+
 			.blog-card-main-title {
 				font-size: 32px;
+
+				&:hover {
+					color: red;
+					transition: all 0.5s;
+				}
 			}
-	
+
 			.blog-card-main-time {
 				margin-top: 16px;
 				margin-bottom: 24px;
@@ -69,7 +99,7 @@
 				letter-spacing: 0.2px;
 				font-size: 12px;
 			}
-	
+
 			.blog-card-main-content {
 				color: rgba(56, 59, 65, 1);
 				font-size: 16px;
@@ -81,25 +111,25 @@
 				line-clamp: 10;
 				-webkit-box-orient: vertical; //盒子中内容竖直排列		
 			}
-	
+
 			.label {
 				margin-top: 28px;
 				display: flex;
 				color: rgba(56, 59, 65, 1);
 				letter-spacing: 0.2px;
 				font-size: 12px;
-	
+
 				span {
 					margin-right: 25px;
 				}
 			}
 		}
-	
+
 		.blog-card-right {
 			width: 504px;
 			height: 380px;
 			border: 1px solid rgba(179, 186, 197, 1);
 		}
-		
+
 	}
 </style>

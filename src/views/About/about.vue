@@ -14,7 +14,7 @@
 			<div class="age">
 				<router-link class="lkv" to="/education">
 					<li class="iconfont icon-w_xuewei-"></li>
-					<span class="text">学历:本科</span>
+					<span class="text">学历:在校生</span>
 				</router-link>
 			</div>
 			<div class="age">
@@ -52,12 +52,12 @@
 		display: flex;
 		position: relative;
 		width: 100%;
-		height: 93vh;
+		height: 100vh;
 		position: absolute;
 		flex-direction: column;
 		align-items: center;
-		background-color: #fff;
-
+		background-image: url(../../assets/image/bcg2.png);
+		
 		.Bout-me {
 			margin-top: 30px;
 

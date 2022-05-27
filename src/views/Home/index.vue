@@ -9,10 +9,10 @@
 				<i class="iconfont icon-x_jiantouyou"></i>
 			</div>
 			<h2 class="saying">自知不足,尚在努力!</h2>
-			<button type="button" class="About">关于博客</button>
+			<button type="button" class="About">向阳的博客</button>
 			<div class="scroll">
-				<span>Scroll</span>
-				<div class="iconfont icon-xiajiantou">
+				<span>Touch</span>
+				<div class="iconfont icon-shangjiantou">
 				</div>
 			</div>
 			<div class="sunshine">
@@ -32,7 +32,7 @@
 	export default {
 		name: 'Home',
 		components: {
-			Squre
+			Squre,
 		},
 		setup() {
 
@@ -42,8 +42,8 @@
 <style lang="scss" scoped>
 	.Home {
 		width: 100%;
-		height: 1976px;
-
+		height: 100vh;
+		box-sizing: border-box;
 		.Img {
 			width: 100%;
 			height: 1080px;
@@ -118,6 +118,7 @@
 				border: 2px solid #fff;
 				border-radius: 5px;
 				transition: 0.5s;
+				letter-spacing: 3px;
 			}
 
 			.About:hover {
@@ -179,6 +180,15 @@
 			margin-top: -700px;
 			margin-left: 200px;
 			transform: rotate(20deg);
+		}
+
+		.blog-home {
+			display: flex;
+			width: 100%;
+			flex-direction: column;
+			
+			align-items: center;
+		
 		}
 	}
 </style>
