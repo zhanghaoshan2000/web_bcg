@@ -1,17 +1,20 @@
 <template>
 	<div class="blog-card">
 		<div class="blog-card-img">
-			
+			<img :src="item.image" >
 		</div>
 		<div class="blog-card-time">
-			20 December 2018 by Mikolaj Dobrucki
+			{{item.time}}
 		</div>
 		<div class="blog-card-title">
-			Blog post title goes here ipsum dolor sit amet, consectetur
+			{{item.content}}
 		</div>
 		<div class="blog-card-dec">
 			<div class="tag">
 				<i class="iconfont icon-biaoqian"></i>
+			</div>
+			<div class="author">
+				<span>作者:<span>{{item.author}}</span></span>
 			</div>
 			<div class="dot-item">
 				<span class="dot"></span>
@@ -51,6 +54,10 @@
 			width: 272px;
 			height: 184px;
 			border: 1px solid rgba(179, 186, 197, 1);
+			img{
+				width: 100%;
+				height: 100%;
+			}
 		}
 
 		.blog-card-time {
@@ -77,12 +84,15 @@
 			margin-top: 20px;
 			display: flex;
 			justify-content: space-between;
-
+			align-items: center;
 			.icon-biaoqian {
 				font-size: 26px;
 				color: $content-deccolor;
 			}
-
+			.author{
+				font-size: 16px;
+				letter-spacing: 5px;
+			}
 			.dot-item {
 				display: flex;
 				flex-direction: column;

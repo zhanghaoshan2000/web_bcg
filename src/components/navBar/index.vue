@@ -11,7 +11,6 @@
 			<router-link class="meun-item" to="/blog">博客</router-link>
 			<router-link class="meun-item" to="/about">关于我</router-link>
 			<router-link class="meun-item" to="/future">未来规划</router-link>
-			<router-link class="meun-item" to="/live">登录</router-link>
 			<button type="button" class="btn">GitHub
 				<i class="iconfont icon-github"></i>
 			</button>

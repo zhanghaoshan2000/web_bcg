@@ -1,7 +1,7 @@
 <template>
 	<div class="blog-card-main">
 		<div class="blog-card-left">
-			<div class="blog-card-main-title" @click="handleTopath">
+			<div class="blog-card-main-title" @click="handleTopath()">
 				{{data.title}}
 			</div>
 			<div class="blog-card-main-time">
@@ -24,9 +24,9 @@
 		</div>
 		<div class="blog-card-right">
 			<div class="blog-card-img">
-
 			</div>
 		</div>
+
 	</div>
 </template>
 
@@ -34,17 +34,17 @@
 	import {
 		useRouter
 	} from 'vue-router';
-	const userRouterEffert = () => {
-		const router = useRouter();
-		const handleTopath = () => {
-			router.push({
-				name: 'blogs'
-			})
-		}
-		return {
-			handleTopath
-		}
-	}
+	// const userRouterEffert = () => {
+	// 	const router = useRouter();
+	// 	const handleTopath = () => {
+	// 		router.push({
+	// 			name: 'blogs'
+	// 		})
+	// 	}
+	// 	return {
+	// 		handleTopath
+	// 	}
+	// }
 	export default {
 		name: 'bigCard',
 		setup() {
@@ -52,12 +52,18 @@
 				title: 'uniapp适配微信小程序',
 				time: '2022-03-21'
 			}
-			const {
-				handleToLogin
-			} = userRouterEffert()
+			// const {
+			// 	handleToLogin
+			// } = userRouterEffert()
+			const router = useRouter();
+			const handleTopath = () => {
+				router.push({
+					name: 'blogs'
+				})
+			}
 			return {
 				data,
-				handleToLogin
+				handleTopath
 			}
 		}
 	}
