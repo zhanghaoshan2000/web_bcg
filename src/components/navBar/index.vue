@@ -6,7 +6,7 @@
 		</ul>
 		<ul class="meun">
 			<router-link class="meun-item" to="/">首页</router-link>
-			<router-link class="meun-item" to="/project">开源项目</router-link>
+			<router-link class="meun-item" to="/project">个人生活</router-link>
 			<!-- <router-link class="meun-item" to="/live">个人生活</router-link> -->
 			<router-link class="meun-item" to="/blog">博客</router-link>
 			<router-link class="meun-item" to="/about">关于我</router-link>

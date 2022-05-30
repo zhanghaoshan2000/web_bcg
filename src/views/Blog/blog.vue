@@ -14,7 +14,7 @@
 			<div class="paging">
 				<div class="pravPage" @click="prav">上一页</div>
 				<div class="pages" v-for="item in conpages" :key="item.id" @click="page(item)"
-				:class="item==cur?'active':''">
+					:class="item==cur?'active':''">
 					{{item}}
 				</div>
 				<div class="nextPage" @click="next()">下一页</div>
@@ -25,8 +25,12 @@
 </template>
 
 <script>
-	import {ref} from 'vue'
-	import {get} from '../../utlis/request.js'
+	// import {
+	// 	ref
+	// } from 'vue'
+	import {
+		get
+	} from '../../utlis/request.js'
 	import Card from '../../components/card/index.vue';
 	import bigCard from './bigCard.vue';
 	import tabbar from './tarbar.vue';
@@ -41,45 +45,66 @@
 			return {
 				conpages: '', //总页数
 				cur: 1, //当前页
-				pageSize:6, //每页要展示数据条数
+				pageSize: 6, //每页要展示数据条数
 				showPage: [], //每页展示的内容
+				lists: null,
+				nearbyList: []
 			}
 		},
-		setup() {
-			const data = [1, 2, 3, 4, 5, 6,7,8,9,10,11,12,13]
-			const nearbyList = ref([]);
-			const getBlogsList = async () =>{
-				const result = await get('/api/blog/news')
-				if(result?.code===1 &&result?.data?.length){
-					nearbyList.value = result.data;
-					console.log(result.data.length)
-				}
-				
-			}
-			getBlogsList();
-			return {
-				data,
-				nearbyList,
-			}
-		},
-		created() {
-			this.conpages = Math.ceil(20 / this.pageSize)
-			this.page(this.cur)
+		// setup() {
+		// const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+		// const nearbyList = ref([]);
+		// const getBlogsList = async () => {
+		// 	const result = await get('/api/blog/news')
+		// 	if (result?.code === 1 && result?.data?.length) {
+		// 		nearbyList.value = result.data;
+		// 		console.log()
+		// 	}
+		// }
+		// getBlogsList();
+		// return {
+		// nearbyList,
+		// getBlogsList
+		// }
+		// },
+		mounted() {
+			this.getBlogsList();
+			// console.log(this.nearbyList)
+			// this.conpages = Math.ceil(20 / this.pageSize)
+			// this.cur = 1;
+			// this.page(this.cur)
 		},
 		methods: {
+			getBlogsList() {
+				var that = this;
+				var result = get('/api/blog/news')
+				result.then(res => {
+					console.log(res.data);
+					that.nearbyList.value = res.data;
+					that.conpages = Math.ceil(that.nearbyList.value.length / this.pageSize);
+					that.cur = 1;
+					that.page(this.cur)
+				})
+				
+				// if (result?.code === 1 && result?.data?.length) {
+				// 	that.nearbyList.value = result.data;
+				// }
+			},
 			page(item) {
 				this.cur = item;
-				var list = (this.cur - 1) *this.pageSize;
-				this.showPage = this.nearbyList.slice(list,list+this.pageSize);
+				var list = (this.cur - 1) * this.pageSize;
+				console.log("list", list, this.nearbyList.value);
+				this.showPage = this.nearbyList.value.slice(list, list + this.pageSize);
+				console.log("showPage", this.showPage)
 			},
-			prav(){
-				if(this.cur !=1){
+			prav() {
+				if (this.cur != 1) {
 					this.cur--
 					this.page(this.cur)
 				}
 			},
-			next(){
-				if(this.cur<this.conpages){
+			next() {
+				if (this.cur < this.conpages) {
 					this.cur++
 					this.page(this.cur)
 				}
@@ -96,7 +121,7 @@
 		height: 1976px;
 		box-sizing: border-box;
 		position: relative;
-		
+
 		.content {
 			width: 100%;
 			display: flex;
@@ -138,7 +163,7 @@
 					border-radius: 5px;
 					font-weight: 600;
 					background-color: #0D0D0D;
-					cursor:pointer;
+					cursor: pointer;
 				}
 
 				.pages {
@@ -153,10 +178,11 @@
 					border-radius: 5px;
 					margin: 0 5px;
 					font-weight: 600;
-					cursor:pointer;
+					cursor: pointer;
 				}
-				.active{
-					background-color:#FFD2A4;
+
+				.active {
+					background-color: #FFD2A4;
 				}
 
 				.nextPage {
@@ -169,7 +195,7 @@
 					border-radius: 5px;
 					background-color: #0D0D0D;
 					font-weight: 600;
-					cursor:pointer;
+					cursor: pointer;
 				}
 			}
 		}
