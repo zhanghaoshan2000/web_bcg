@@ -1,29 +1,23 @@
 <template>
-	<div class="blog-card-main">
+	<div class="blog-card-main" v-for="item in nearbyList" :key="item.id">
 		<div class="blog-card-left">
 			<div class="blog-card-main-title" @click="handleTopath()">
-				{{data.title}}
+				{{item.title}}
 			</div>
 			<div class="blog-card-main-time">
-				时间：{{data.time}}
+				时间：{{item.time}}
 			</div>
 			<div class="blog-card-main-content">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-				laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-				non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure
-				dolor in reprehenderit in voluptate velit esse cillum.
+				{{item.content}}
 			</div>
 			<div class="label">
 				<span>标签</span>
-				<span>sample tag</span>
-				<span>sample tag</span>
-				<span>sample tag</span>
+				<span>{{item.author}}</span>
 			</div>
 		</div>
 		<div class="blog-card-right">
 			<div class="blog-card-img">
+				<img :src="item.image">
 			</div>
 		</div>
 
@@ -32,19 +26,14 @@
 
 <script>
 	import {
+		get
+	} from '../../utlis/request.js'
+	import {
+		ref
+	} from 'vue'
+	import {
 		useRouter
 	} from 'vue-router';
-	// const userRouterEffert = () => {
-	// 	const router = useRouter();
-	// 	const handleTopath = () => {
-	// 		router.push({
-	// 			name: 'blogs'
-	// 		})
-	// 	}
-	// 	return {
-	// 		handleTopath
-	// 	}
-	// }
 	export default {
 		name: 'bigCard',
 		setup() {
@@ -52,18 +41,27 @@
 				title: 'uniapp适配微信小程序',
 				time: '2022-03-21'
 			}
-			// const {
-			// 	handleToLogin
-			// } = userRouterEffert()
+			const nearbyList = ref([])
 			const router = useRouter();
 			const handleTopath = () => {
 				router.push({
 					name: 'blogs'
 				})
 			}
+			const getBlogNews = async () => {
+				const result = await get('/api/blog/Carousel')
+				if (result.code === 1 && result.data.length) {
+					nearbyList.value = result.data
+					console.log(result.data)
+				}
+			}
+			getBlogNews();
 			return {
+				// result,
 				data,
-				handleTopath
+				handleTopath,
+				getBlogNews,
+				nearbyList
 			}
 		}
 	}
@@ -84,9 +82,10 @@
 		padding: 40px;
 		justify-content: space-between;
 		margin-bottom: 80px;
+		overflow: hidden;
 
 		.blog-card-left {
-			width: 495px;
+			width: 450px;
 			height: 380px;
 
 			.blog-card-main-title {
@@ -132,9 +131,22 @@
 		}
 
 		.blog-card-right {
-			width: 504px;
-			height: 380px;
+			width: 540px;
+			height: 400px;
 			border: 1px solid rgba(179, 186, 197, 1);
+			border-radius: 5px;
+
+			.blog-card-img {
+				width: 540px;
+				height: 400px;
+
+
+				img {
+					width: 100%;
+					height: 100%;
+					border-radius: 5px;
+				}
+			}
 		}
 
 	}

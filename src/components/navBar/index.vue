@@ -11,7 +11,7 @@
 			<router-link class="meun-item" to="/blog">博客</router-link>
 			<router-link class="meun-item" to="/about">关于我</router-link>
 			<router-link class="meun-item" to="/future">未来规划</router-link>
-			<button type="button" class="btn">GitHub
+			<button type="button" class="btn"><a href="https://github.com/zhanghaoshan2000">GitHub</a>
 				<i class="iconfont icon-github"></i>
 			</button>
 		</ul>
@@ -45,6 +45,7 @@
 		top: 0;
 		flex-shrink: 0;
 		z-index: 99;
+		overflow: hidden;
 
 		.logo {
 			display: flex;
@@ -103,6 +104,11 @@
 			border: none;
 			font-size: 14px;
 			border-radius: 5px;
+			overflow: hidden;
+			a{
+				color: black;
+				text-decoration: none;
+			}
 		}
 	}
 

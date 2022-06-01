@@ -16,12 +16,17 @@
 		<div class="content">
 			<div class="main-life">
 				<div class="content-title">
-					<router-link class="life-btn" to="">大学生活</router-link>
-					<router-link class="life-btn" to="/">个人生活</router-link>
-					<router-link class="life-btn" to="/location">旅游</router-link>
-					<router-link class="life-btn" to="/location">琐事</router-link>
+					<router-link class="life-btn" to="/collage">大学生活</router-link>
+					<!-- <router-link class="life-btn" to="/mylife">个人生活</router-link> -->
+					<router-link class="life-btn" to="/small">旅游</router-link>
+					<router-link class="life-btn" to="/travel">琐事</router-link>
 				</div>
-
+				<div class="main">
+					<router-view class="" name="collage"></router-view>
+					<router-view class="" name="mylife"></router-view>
+					<router-view class="" name="small"></router-view>
+					<router-view class="" name="travel"></router-view>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -42,7 +47,7 @@
 <style lang="scss" scoped>
 	.project {
 		position: relative;
-		height: 3000px;
+		height:auto;
 
 		.banner {
 			width: 100%;
@@ -104,7 +109,7 @@
 			.main-life {
 				width: 1510px;
 				height: 1470px;
-
+				box-sizing: border-box;
 
 				.content-title {
 					width: 100%;
@@ -124,8 +129,10 @@
 					.router-link-active {
 						border-bottom: 2px solid rgba(0, 0, 0, 1);
 						color: #000;
-						transition: all .3s;
 					}
+				}
+				.main{
+					margin-top: 40px;
 				}
 			}
 		}

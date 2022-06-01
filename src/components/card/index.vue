@@ -1,7 +1,9 @@
 <template>
 	<div class="blog-card">
-		<div class="blog-card-img">
-			<img :src="item.image" >
+		<div class="blog-img">
+			<div class="blog-card-img">
+				<img :src="item.image">
+			</div>
 		</div>
 		<div class="blog-card-time">
 			{{item.time}}
@@ -28,9 +30,9 @@
 <script>
 	export default {
 		name: 'Card',
-		props:{
-			item:{
-				
+		props: {
+			item: {
+
 			}
 		},
 		setup() {
@@ -41,6 +43,7 @@
 
 <style lang="scss">
 	@import '../../style/index.scss';
+
 	.blog-card {
 		width: 352px;
 		height: 438px;
@@ -49,14 +52,20 @@
 		box-sizing: border-box;
 		text-align: center;
 		margin-bottom: 32px;
-
-		.blog-card-img {
-			width: 272px;
-			height: 184px;
-			border: 1px solid rgba(179, 186, 197, 1);
-			img{
-				width: 100%;
-				height: 100%;
+		overflow: hidden;
+		.blog-img {
+			display: flex;
+			justify-content: center;
+			.blog-card-img {
+				width: 200px;
+				height: 200px;
+				border: 1px solid rgba(179, 186, 197, 1);
+				border-radius: 5px;
+				img {
+					width: 100%;
+					height: 100%;
+					border-radius: 5px;
+				}
 			}
 		}
 
@@ -70,7 +79,7 @@
 
 		.blog-card-title {
 			color: $content-fontcolor;
-			font-size: 24px;
+			font-size: 20px;
 			text-overflow: -o-ellipsis-lastline;
 			overflow: hidden; //溢出内容隐藏
 			text-overflow: ellipsis; //文本溢出部分用省略号表示
@@ -81,18 +90,21 @@
 		}
 
 		.blog-card-dec {
-			margin-top: 20px;
+			margin-top: 10px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+
 			.icon-biaoqian {
 				font-size: 26px;
 				color: $content-deccolor;
 			}
-			.author{
+
+			.author {
 				font-size: 16px;
 				letter-spacing: 5px;
 			}
+
 			.dot-item {
 				display: flex;
 				flex-direction: column;

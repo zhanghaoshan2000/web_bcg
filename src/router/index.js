@@ -9,6 +9,10 @@ import work from '../views/About/induction/work.vue'
 import future from '../views/Future/future/future.vue'
 import now from '../views/Future/future/now.vue'
 import road from '../views/Future/future/road.vue'
+import collage from '../views/Project/life/collage.vue'
+import mylife from '../views/Project/life/mylife.vue'
+import small from '../views/Project/life/small.vue'
+import travel from '../views/Project/life/travel.vue'
 const routes = [{
 		path: '/',
 		name: 'Home',
@@ -120,11 +124,60 @@ const routes = [{
 	}, {
 		path: '/project',
 		name: 'Project',
-		component: () => import( /* webpackChunkName: "about" */ '../views/Project/index.vue')
+		component: () => import( /* webpackChunkName: "about" */ '../views/Project/index.vue'),
+		redirect: '/collage',
+		children: [{
+				path: '/collage',
+				name: 'collage',
+				components: {
+					default: {
+						mylife: mylife,
+						small: small,
+						travel: travel
+					},
+					collage: collage,
+				}
+			}, {
+				path: '/mylife',
+				name: 'mylife',
+				components: {
+					default: {
+						small: small,
+						travel: travel,
+						collage: collage,
+					},
+					mylife: mylife,
+				}
+			},
+			{
+				path: '/small',
+				name: 'small',
+				components: {
+					default: {
+						travel: travel,
+						collage: collage,
+						mylife: mylife,
+					},
+					small: small,
+				}
+			},
+			{
+				path: '/travel',
+				name: 'travel',
+				components: {
+					default: {
+						small: small,
+						mylife: mylife,
+						collage: collage,
+					},
+					travel: travel,
+				}
+			}
+		]
 	},
 	{
-		path:'/blogs',
-		name:'blogs',
+		path: '/blogs',
+		name: 'blogs',
 		component: () => import( /* webpackChunkName: "about" */ '../views/Blogs/index.vue')
 	}
 ]
