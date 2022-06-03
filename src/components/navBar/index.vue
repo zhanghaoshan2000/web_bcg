@@ -60,13 +60,15 @@
 				height: 45px;
 				margin-right: 16px;
 				text-align: center;
-				.iconfont{
+
+				.iconfont {
 					color: #fff;
 					font-size: 35px;
 					line-height: 45px;
 				}
 			}
-			.name-logo{
+
+			.name-logo {
 				color: #fff;
 				letter-spacing: 3px;
 			}
@@ -105,7 +107,8 @@
 			font-size: 14px;
 			border-radius: 5px;
 			overflow: hidden;
-			a{
+
+			a {
 				color: black;
 				text-decoration: none;
 			}

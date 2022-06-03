@@ -42,13 +42,14 @@
 <style lang="scss" scoped>
 	.Home {
 		width: 100%;
-		height: 100vh;
+		height: auto;
 		box-sizing: border-box;
 		.Img {
 			width: 100%;
-			height: 1080px;
+			height: 100vh;
 			background: url(../../assets/image/bcg2.png);
 			background-size: cover;
+			background-position: center;
 		}
 
 		.text {
@@ -190,5 +191,6 @@
 			align-items: center;
 		
 		}
+		
 	}
 </style>

@@ -35,8 +35,13 @@
 
 			}
 		},
-		setup() {
-
+		setup(props,{emit}) {
+			const change = () => {
+				emit('xxxx')
+			}
+			return{
+				change
+			}
 		}
 	}
 </script>
@@ -53,14 +58,17 @@
 		text-align: center;
 		margin-bottom: 32px;
 		overflow: hidden;
+
 		.blog-img {
 			display: flex;
 			justify-content: center;
+
 			.blog-card-img {
 				width: 200px;
 				height: 200px;
 				border: 1px solid rgba(179, 186, 197, 1);
 				border-radius: 5px;
+
 				img {
 					width: 100%;
 					height: 100%;

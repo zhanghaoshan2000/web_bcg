@@ -78,6 +78,8 @@
 		transition: all 0.5s;
 		animation: trans 1.5s alternate;
 		border-radius: 10px;
+		width: 896px;
+		height: 327px;
 		z-index: 10;
 		margin-top: 20px;
 		margin-left: 20px;

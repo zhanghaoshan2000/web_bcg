@@ -1,6 +1,6 @@
 <template>
 	<div class="card">
-		<Card v-for="item in showPage" :key="item.id" :item="item" />
+		<Card v-for="item in showPage" :key="item.id" :item="item" @click="changezi(item.id)" />
 	</div>
 	<div class="card-blogs">
 	</div>
@@ -16,6 +16,9 @@
 <script>
 	// import Skeleton from '../../components/Skeleton/card.vue'
 	import {
+		useRouter
+	} from 'vue-router'
+	import {
 		get
 	} from '../../utlis/request.js'
 	import Card from '../../components/card/index.vue';
@@ -24,6 +27,18 @@
 			// NavBar,
 			Card,
 			// Skeleton,
+		},
+		setup() {
+			const router = useRouter()
+			const changezi = (id) => {
+				router.push({
+					path:'/blogs',
+					query:{id}
+				})
+			}
+			return {
+				changezi
+			}
 		},
 		data() {
 			return {
